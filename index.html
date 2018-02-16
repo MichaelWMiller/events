@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cars App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="swapi">
+
+            <h1 id="page-title">Events are fun</h1>
+
+            <form>
+                <select type="text" id="search-query" class="material-select">
+				<option value="people">People</option>
+				<option value="starships">Starships</option>
+				<option value="planets">Planets</option>
+			</select>
+
+            </form>
+
+            <div class="hidden" id="results-here">
+
+            </div>
+            <div class="hidden" id="details-here">
+
+            </div>
+        </div>
+
+        <div class="car-stuff">
+            <form onsubmit="app.controllers.carCtrl.makeCar(event)">
+                <div class="form-group">
+                    <label for="make">Make:</label>
+                    <input type="text" name="make" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="model">Model:</label>
+                    <input type="text" name="model" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <input type="text" name="year" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="color">color:</label>
+                    <input type="text" name="color" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="text" name="price" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Add Car</button>
+                    <button type="reset" class="btn btn-danger red">Clear</button>
+                </div>
+            </form>
+            <div>
+                <div class="container-flex">
+                    <div class="row" id="cars-here">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- EXTERNAL LIBRARIES -->
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
+    <!-- SERVICES -->
+
+    <script src="app/car-service.js "></script>
+    <!-- CONTROLLERS -->
+    <script src="app/car-controller.js "></script>
+    <!-- LOCAL JS -->
+    <script src="app/app.js "></script>
+
+</body>
+
+</html>
