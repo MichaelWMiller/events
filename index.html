@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cars App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
 
 </head>
@@ -14,16 +15,22 @@
 <body>
 
     <div id="app">
-        <div class="swapi">
-
+        <div class="row text-center justify-between">
+            <div class="col-sm-4">
+                <h3>Autos</h3>
+                <button class="btn button btn-danger" onclick="app.controllers.carCtrl.goAutos()">Go Cars!</button>
+            </div>
+            <div class="col-sm-4">
+                <h3>Fruit</h3>
+                <button class="btn button btn-danger" onclick="app.controllers.fruitCtrl.goFruit()">Go Fruits!</button>
+            </div>
+            <div class="col-sm-4">
+                <h3>Animals</h3>
+                <button class="btn button btn-danger" onclick="app.controllers.animalCtrl.goAnimals()">Go Animals!</button>
+            </div>
+        </div>
+        <div class="autos">
             <h1 id="page-title">Events are fun</h1>
-
-            <form>
-                <select type="text" id="search-query" class="material-select">
-				<option value="people">People</option>
-				<option value="starships">Starships</option>
-				<option value="planets">Planets</option>
-			</select>
 
             </form>
 
@@ -35,40 +42,113 @@
             </div>
         </div>
 
-        <div class="car-stuff">
-            <form onsubmit="app.controllers.carCtrl.makeCar(event)">
-                <div class="form-group">
-                    <label for="make">Make:</label>
-                    <input type="text" name="make" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="model">Model:</label>
-                    <input type="text" name="model" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="year">Year:</label>
-                    <input type="text" name="year" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="color">color:</label>
-                    <input type="text" name="color" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="price">Price:</label>
-                    <input type="text" name="price" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success">Add Car</button>
-                    <button type="reset" class="btn btn-danger red">Clear</button>
-                </div>
-            </form>
-            <div>
-                <div class="container-flex">
-                    <div class="row" id="cars-here">
+        <section id="autos" class="">
+            <div class="car-stuff">
+                <h2>You're in Cars!</h2>
+                <form onsubmit="app.controllers.carCtrl.makeCar(event)">
+                    <div class="form-group">
+                        <label for="make">Make:</label>
+                        <input type="text" name="make" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Model:</label>
+                        <input type="text" name="model" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year:</label>
+                        <input type="text" name="year" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="color">color:</label>
+                        <input type="text" name="color" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="text" name="price" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Add Car</button>
+                        <button type="reset" class="btn btn-danger red">Clear</button>
+                    </div>
+                </form>
+                <div>
+                    <div class="container-flex">
+                        <div class="row" id="cars-here">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <section id="fruit">
+            <!-- fffffffffffffff -->
+            <div class="car-stuff">
+                <h2>You're in Fruit!</h2>
+                <form onsubmit="app.controllers.fruitCtrl.makeFruit(event)">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Color:</label>
+                        <input type="text" name="color" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">Size:</label>
+                        <input type="text" name="size" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tang">Tang:</label>
+                        <input type="text" name="tang" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Add Fruit</button>
+                        <button type="reset" class="btn btn-danger red">Clear</button>
+                    </div>
+                </form>
+                <div>
+                    <div class="container-flex">
+                        <div class="row" id="fruits-here">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fffffffffffffff -->
+        </section>
+        <section id="animals">
+            <!-- aaaaaaaaaaaaaaa -->
+            <div class="animal-stuff">
+                <h2>You're in Animals!</h2>
+                <form onsubmit="app.controllers.animalCtrl.makeAnimal(event)">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nbrLegs">Number of Legs:</label>
+                        <input type="number" name="nbrLegs" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="speed">Speed:</label>
+                        <input type="text" name="speed" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="color">color:</label>
+                        <input type="text" name="color" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Add Animal</button>
+                        <button type="reset" class="btn btn-danger red">Clear</button>
+                    </div>
+                </form>
+                <div>
+                    <div class="container-flex">
+                        <div class="row" id="animals-here">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- aaaaaaaaaaaaaaa -->
+        </section>
 
     </div>
 
@@ -77,8 +157,13 @@
     <!-- SERVICES -->
 
     <script src="app/car-service.js "></script>
+    <script src="app/fruit-service.js "></script>
+    <script src="app/animal-service.js "></script>
+
     <!-- CONTROLLERS -->
     <script src="app/car-controller.js "></script>
+    <script src="app/fruit-controller.js "></script>
+    <script src="app/animal-controller.js "></script>
     <!-- LOCAL JS -->
     <script src="app/app.js "></script>
 

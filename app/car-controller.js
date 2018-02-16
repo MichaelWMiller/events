@@ -1,4 +1,16 @@
 function CarController() {
+    // var searchElem = document.getElementById('search-query')
+    // var resultsElem = document.getElementById('results-here')
+    // var appElem = document.getElementById('app')
+    // var detailsElem = document.getElementById('details-here')
+
+
+    // searchElem.addEventListener('change', function(event){
+    //     resultsElem.classList.add('hidden')
+    //     var query = event.target.value
+    //     carService.getData(query, draw)
+    // })
+
     var carsElem = document.getElementById('cars-here')
     var carService = new CarService()
 
@@ -30,7 +42,10 @@ function CarController() {
 
     function draw(cars) {
         var template = ''
-        if (cars.length < 1) {
+        if (cars == undefined) {
+            carsElem.innerHTML = '<h3>Sorry.... no listings at this time check back soon.</h3>'
+            return
+        } else if (cars.length < 1) {
             carsElem.innerHTML = '<h3>Sorry.... no listings at this time check back soon.</h3>'
             return
         }
@@ -40,13 +55,9 @@ function CarController() {
             <div class="card p-1 flex space-between">
                 <div class="details">
                     <p>${car.year} - ${car.make} - ${car.model} - ${car.color} - ${car.price}</p>
-                    <button onclick="app.controllers.carCtrl.showEditCarForm('${car.id}')" class="action fa fa-fw fa-lg fa-pencil text-blue">Edit</button>
-                    <button onclick="app.controllers.carCtrl.removeCar('${car.id}')" class="action fa fa-fw fa-lg fa-trash text-red">Remove</button
+                    <li> onclick="app.controllers.carCtrl.showEditCarForm('${car.id}')" class="action fa fa-fw fa-lg fa-pencil text-blue">Edit</li>
+                    <li onclick="app.controllers.carCtrl.removeCar('${car.id}')" class="action fa fa-fw fa-lg fa-trash text-red">Remove</li>
                 </div>
-             <!--   <div>
-                    <i onclick="app.controllers.carCtrl.showEditCarForm('${car.id}')" class="action fa fa-fw fa-lg fa-pencil text-blue"></i> 
-                    <i onclick="app.controllers.carCtrl.removeCar('${car.id}')" class="action fa fa-fw fa-lg fa-trash text-red"></i>
-                </div> -->
                 <form id="edit-${car.id}" class="hidden" onsubmit="app.controllers.carCtrl.editCar(event)">
 				<div class="form-group hidden">
 					<label for="id">id:</label>
@@ -83,6 +94,49 @@ function CarController() {
 
         carsElem.innerHTML = template
     }
+
+    function hideOtherForms() {
+        document.getElementById("fruit").style.visibility = "hidden"
+        document.getElementById("animals").style.visibility = "hidden"
+
+        document.getElementById("autos").style.visibility = "visible"
+    }
+
+    this.goAutos = function goAutos() {
+        hideOtherForms()
+        getCars()
+    }
+
+    // hideOtherForms()
+
+    //FOR FRUIT
+    // function hideOtherForms() {
+    //     document.getElementById("autos").style.visibility = "hidden"
+    //     document.getElementById("animals").style.visibility = "hidden"
+
+    //     document.getElementById("fruit").style.visibility = "visible"
+
+    // }
+
+    // this.goFruit = function goFruit() {
+    //     hideOtherForms()
+    //     draw()
+    // }
+
+    //FOR ANIMALS
+
+    // function hideOtherForms() {
+    //     document.getElementById("autos").style.visibility = "hidden"
+    //     document.getElementById("fruit").style.visibility = "hidden"
+
+    //     document.getElementById("animals").style.visibility = "visible"
+
+    // }
+
+    // this.goAnimals = function goAnimals() {
+    //     hideOtherForms()
+    //     draw()
+    // }
 
     getCars()
 

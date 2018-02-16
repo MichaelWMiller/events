@@ -1,5 +1,7 @@
 app = {
     controllers: {
-        carCtrl: new CarController()
+        carCtrl: new CarController(),
+        fruitCtrl: new FruitController(),
+        animalCtrl: new AnimalController()
     }
 }
